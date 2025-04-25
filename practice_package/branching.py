@@ -5,6 +5,7 @@ def is_weekend(day):
         case _:
             return False
 
+
 def get_discount(amount):
     match amount:
         case a if a >= 5000:
@@ -15,20 +16,23 @@ def get_discount(amount):
             rate = 0
     return round(amount * rate, 2)
 
+
 def describe_number(n):
     parity = {True: 'четное', False: 'нечетное'}[n % 2 == 0]
     digits = {1: 'однозначное', 2: 'двузначное', 3: 'трехзначное'}[len(str(n))]
     return f"{parity} {digits} число"
 
+
 def convert_to_meters(unitNumber, lengthInUnits):
     factors = {
-        1: 0.1,    
-        2: 1000,   
-        3: 1,      
+        1: 0.1, 
+        2: 1000, 
+        3: 1, 
         4: 0.001, 
         5: 0.01    
     }
     return lengthInUnits * factors.get(unitNumber, 1)
+
 
 def describe_age(age):
     tens_map = {
