@@ -17,7 +17,7 @@ class TestStringsFunctions:
         ('/home/user/photo.jpg', 'photo'),
         ('archive.tar.gz', 'archive') 
     ], ids=["windows_path", "relative_path", "unix_path", 
-            "double_extension", "no_extension", "hidden_file"])
+            "double_extension"])
     def test_extract_file_name(self, path, expected):
         assert extract_file_name(path) == expected
     
@@ -28,7 +28,7 @@ class TestStringsFunctions:
         ('A', 'A'), 
         ('', ''), 
     ], ids=["normal", "with_punctuation", "even_length", 
-            "single_char", "empty_string"])
+            "single_char", "empty"])
     def test_encrypt_sentence(self, original, encrypted):
         assert encrypt_sentence(original) == encrypted
     

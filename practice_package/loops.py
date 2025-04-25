@@ -1,37 +1,23 @@
 def sum_even_digits(number):
-    s = str(abs(number))
-    total = 0
-    for ch in s:
-        digit = int(ch)
-        if digit % 2 == 0:
-            total += digit
-    return total
+    return sum(int(ch) for ch in str(abs(number)) if int(ch) % 2 == 0)
 
 
 def count_vowel_triplets(text):
     vowels = set('aeiouyAEIOUY')
     n = len(text)
-    groups = []
     i = 0
+    total = 0
+
     while i < n:
         if text[i] in vowels:
             start = i
             while i < n and text[i] in vowels:
                 i += 1
             length = i - start
-            groups.append((start, length))
+            if length >= 3:
+                total += max(1, length - 2 if length > 3 else 1)
         else:
             i += 1
-    total = 0
-    for start, length in groups:
-        if length >= 3:
-            if start == 0 and length == n:
-                total += 1
-            else:
-                count = length - 2
-                if length > 3:
-                    count -= 1
-                total += count
     return total
 
 
@@ -40,8 +26,7 @@ def find_fibonacci_index(number):
         return -1
     if number == 1:
         return 1
-    f1, f2 = 1, 1
-    idx = 2
+    f1, f2, idx = 1, 1, 2
     while f2 < number:
         f1, f2 = f2, f1 + f2
         idx += 1

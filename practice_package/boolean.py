@@ -1,10 +1,9 @@
+check_between_numbers = lambda a, b, c: (a < b < c) or (c < b < a)
 
-check_between_numbers = lambda A, B, C: (B > A and B < C) or (B > C and B < A)
-
-check_odd_three = lambda number: (100 <= abs(number) <= 999) and (number % 2 != 0)
+check_odd_three = lambda number: 100 <= abs(number) <= 999 and number % 2 != 0
 
 check_unique_digits = lambda number: (
-    True if 100 <= abs(number) <= 999 and len({d for d in str(abs(number))}) == 3 else False
+    100 <= abs(number) <= 999 and len(set(str(abs(number)))) == 3
 )
 
 
